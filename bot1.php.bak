@@ -83,7 +83,7 @@ if(!is_null($events)){
 // ส่วนของคำสั่งจัดเตียมรูปแบบข้อความสำหรับส่ง
 //$textMessageBuilder = new TextMessageBuilder(json_encode($events));
 $textMessageBuilder = new TextMessageBuilder($all.' =>'.json_encode($events));
-
+/*
 //l ส่วนของคำสั่งตอบกลับข้อความ
 $response = $bot->replyMessage($replyToken,$textMessageBuilder);
 if ($response->isSucceeded()) {
@@ -94,9 +94,9 @@ if ($response->isSucceeded()) {
 // Failed
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 
-
+*/
 //ทดสอบ getMessageContent
-/*
+
 $response = $bot->getMessageContent($idMessage);
 if ($response->isSucceeded()) {
     $tempfile = tmpfile();
@@ -104,5 +104,5 @@ if ($response->isSucceeded()) {
 } else {
     error_log($response->getHTTPStatus() . ' ' . $response->getRawBody());
 }
-*/
+
 ?>
