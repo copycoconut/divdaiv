@@ -96,6 +96,7 @@ echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 
 */
 //ทดสอบ getMessageContent
+/*
 $response = $bot->getMessageContent('<messageId>');
 if ($response->isSucceeded()) {
     $tempfile = tmpfile();
@@ -103,5 +104,5 @@ if ($response->isSucceeded()) {
 } else {
     error_log($response->getHTTPStatus() . ' ' . $response->getRawBody());
 }
-
+*/
 ?>
