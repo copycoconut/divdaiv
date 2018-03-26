@@ -63,13 +63,23 @@ if(!is_null($events)){
 	$typeMessage = $events['events'][0]['message']['type'];
     $userMessage = $events['events'][0]['message']['text'];
 	$idMessage = $events['events'][0]['message']['id'];
-    //$userMessage = strtolower($userMessage);
+	$userId = $events['events'][0]['source']['userId'];
+	$groupId = $events['events'][0]['source']['groupId'];
+	$typeId = $events['events'][0]['source']['type'];
+    $userMessage = strtolower($userMessage);
+		if($typeMessage=='sticke'){
+			$stickerId = $events['events'][0]['message']['stickerId'];
+			$packageId = $events['events'][0]['message']['packageId'];
+
+		}
+	$timestamp = $events['events'][0]['timestamp'];
 
 	//รวมข้อความไว้แสดงผล
 	$all = $replyToken.' -'.$typeMessage.' -'.$userMessage.' -'.$idMessage;
 	
 }
 
+/*
 // ส่วนของคำสั่งจัดเตียมรูปแบบข้อความสำหรับส่ง
 //$textMessageBuilder = new TextMessageBuilder(json_encode($events));
 $textMessageBuilder = new TextMessageBuilder($all.' =>'.json_encode($events));
@@ -83,4 +93,15 @@ if ($response->isSucceeded()) {
  
 // Failed
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
+
+*/
+//ทดสอบ getMessageContent
+$response = $bot->getMessageContent($idMessage);
+if ($response->isSucceeded()) {
+    $tempfile = tmpfile();
+    fwrite($tempfile, $response->getRawBody());
+} else {
+    error_log($response->getHTTPStatus() . ' ' . $response->getRawBody());
+}
+
 ?>
