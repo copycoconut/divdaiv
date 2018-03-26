@@ -66,7 +66,7 @@ if(!is_null($events)){
 $textMessageBuilder = new TextMessageBuilder(json_encode($events));
  */
 
-$textMessageBuilder = new TextMessageBuilder($events);
+$textMessageBuilder = "ok";
 //l ส่วนของคำสั่งตอบกลับข้อความ
 $response = $bot->replyMessage($replyToken,$textMessageBuilder);
 if ($response->isSucceeded()) {
