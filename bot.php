@@ -8,10 +8,10 @@ error_reporting(E_ALL);
 require_once 'vendor/autoload.php';
  
 // การตั้งเกี่ยวกับ bot
-require_once 'bot_settings.php';
+require_once 'config/bot_settings.php';
  
 // กรณีมีการเชื่อมต่อกับฐานข้อมูล
-//require_once("dbconnect.php");
+//require_once("config/dbconnect.php");
  
 ///////////// ส่วนของการเรียกใช้งาน class ผ่าน namespace
 use LINE\LINEBot;
@@ -61,9 +61,12 @@ if(!is_null($events)){
     // ถ้ามีค่า สร้างตัวแปรเก็บ replyToken ไว้ใช้งาน
     $replyToken = $events['events'][0]['replyToken'];
 }
+/*
 // ส่วนของคำสั่งจัดเตียมรูปแบบข้อความสำหรับส่ง
 $textMessageBuilder = new TextMessageBuilder(json_encode($events));
- 
+ */
+
+$textMessageBuilder = new TextMessageBuilder($events);
 //l ส่วนของคำสั่งตอบกลับข้อความ
 $response = $bot->replyMessage($replyToken,$textMessageBuilder);
 if ($response->isSucceeded()) {
