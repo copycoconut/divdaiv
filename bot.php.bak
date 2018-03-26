@@ -62,10 +62,11 @@ if(!is_null($events)){
     $replyToken = $events['events'][0]['replyToken'];
 	$typeMessage = $events['events'][0]['message']['type'];
     $userMessage = $events['events'][0]['message']['text'];
+	$idMessage = $events['events'][0]['message']['id'];
     //$userMessage = strtolower($userMessage);
 
 	//รวมข้อความไว้แสดงผล
-	$all = $replyToken.'<br>'.$typeMessage.'<br>'.$userMessage;
+	$all = $replyToken.' -'.$typeMessage.' -'.$userMessage.' -'.$idMessage;
 	
 }
 
