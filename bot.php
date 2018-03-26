@@ -60,13 +60,13 @@ $events = json_decode($content, true);
 if(!is_null($events)){
     // ถ้ามีค่า สร้างตัวแปรเก็บ replyToken ไว้ใช้งาน และอื่นๆด้วย
     $replyToken = $events['events'][0]['replyToken'];
-	$groupId = $events['events'][0]['groupId'];
+	$groupId = $events('groupId');
 	
 }
 
 // ส่วนของคำสั่งจัดเตียมรูปแบบข้อความสำหรับส่ง
 //$textMessageBuilder = new TextMessageBuilder(json_encode($events));
-$textMessageBuilder = new TextMessageBuilder($replyToken.'\n'.$groupId);
+$textMessageBuilder = new TextMessageBuilder($replyToken.'replyToken'.$groupId);
 
 //l ส่วนของคำสั่งตอบกลับข้อความ
 $response = $bot->replyMessage($replyToken,$textMessageBuilder);
