@@ -1,5 +1,5 @@
 <?
-
+/*
 // include composer autoload
 require_once 'vendor/autoload.php';
 
@@ -12,5 +12,6 @@ if ($response->isSucceeded()) {
 
 // Failed
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
-
+*/
+print "copycoconut";
 ?>
