@@ -1,5 +1,5 @@
 <?
-require_once __DIR__ . '/vendor/autoload.php'; // change path as needed
+require_once __DIR__ . 'vendor/autoload.php'; // change path as needed
 
 $fb = new \Facebook\Facebook([
   'app_id' => '436332386788804',
