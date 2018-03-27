@@ -3,7 +3,7 @@ require_once __DIR__ . '/vendor/autoload.php'; // change path as needed
 
 $fb = new \Facebook\Facebook([
   'app_id' => '436332386788804',
-  'app_secret' => '8dbfb4cad4b4bad666dfa4ea7306538a',
+  'app_secret' => '4f0d3f48830abc55b56499aaaace513f',
   'default_graph_version' => 'v2.10',
   //'default_access_token' => '{access-token}', // optional
 ]);
@@ -17,7 +17,7 @@ $fb = new \Facebook\Facebook([
 try {
   // Get the \Facebook\GraphNodes\GraphUser object for the current user.
   // If you provided a 'default_access_token', the '{access-token}' is optional.
-  $response = $fb->get('/me', '{access-token}');
+  $response = $fb->get('/me', 'EAAGM14zrJcQBAF1lMVZBCtGxxWn34157JD727TlKE79igY0L3BGuWCozsU3C6YSkZB55hRKF5g1PrIqYvCi2Ky5T7yZBNMx7IdrlkhPklv9ap7aiFG9KaBuIFOr4kvmMIlykLlXN5UuyJDICiFGMFs0IafEcWCAKfwglD2zL2cM0LcYBmAW');
 } catch(\Facebook\Exceptions\FacebookResponseException $e) {
   // When Graph returns an error
   echo 'Graph returned an error: ' . $e->getMessage();
@@ -30,14 +30,4 @@ try {
 
 $me = $response->getGraphUser();
 echo 'Logged in as ' . $me->getName();
-Complete documentation, installation instructions, and examples are available here.
-
-Tests
-Composer is a prerequisite for running the tests. Install composer globally, then run composer install to install required files.
-Create a test app on Facebook Developers, then create tests/FacebookTestCredentials.php from tests/FacebookTestCredentials.php.dist and edit it to add your credentials.
-The tests can be executed by running this command from the root directory:
-$ ./vendor/bin/phpunit
-By default the tests will send live HTTP requests to the Graph API. If you are without an internet connection you can skip these tests by excluding the integration group.
-
-$ ./vendor/bin/phpunit --exclude-group integration
 ?>
