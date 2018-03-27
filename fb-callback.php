@@ -1,7 +1,7 @@
 <?
 $fb = new Facebook\Facebook([
   'app_id' => '800327386816400', // Replace {app-id} with your app id
-  'app_secret' => '{app-secret}',
+  'app_secret' => 'copypro',
   'default_graph_version' => 'v2.2',
   ]);
 

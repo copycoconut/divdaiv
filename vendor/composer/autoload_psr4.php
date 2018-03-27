@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'LINE\\' => array($vendorDir . '/linecorp/line-bot-sdk/src'),
+    'Facebook\\' => array($vendorDir . '/facebook/graph-sdk/src/Facebook'),
 );
